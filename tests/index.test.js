@@ -12,7 +12,7 @@ describe('Intern Testing', () => {
         expect(utils.findMin([3, 6, 9, 10, 1, 4, 8, 5, 7, 2])).to.equal(1)
         expect(utils.findMin([30, 60, 90, 100, 10, 40, 80, 50, 70, 20])).to.equal(10)
     })
-
+    
     it('เปลี่ยนรูปแบบข้อมูลให้ตรงตามโจทย์', () => {
         const data = [
             {
@@ -84,12 +84,12 @@ describe('Intern Testing', () => {
         }
         expect(expectData).to.deep.equal(utils.reformatData(data))
     })
-
-    it('หาจำนวนคู่ที่พวกแล้วได้ 10 ว่ามีจำนวนกี่คู่', () => {
-        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        const actual = utils.counterTen(numbers)
-        expect(actual).to.equal(4)
-    })
+    // 
+    // it('หาจำนวนคู่ที่พวกแล้วได้ 10 ว่ามีจำนวนกี่คู่', () => {
+    //     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    //     const actual = utils.counterTen(numbers)
+    //     expect(actual).to.equal(4)
+    // })
 })
 
 console.log(expect)
