@@ -1,53 +1,33 @@
 exports.findMax = (arr) => {
-  let max = arr[0];
-
-  for(let i = 1, len = arr.length; i < len; i++ ) {
-    let next = arr[i];
-    max = (next > max) ? next : max;
-  }
-  return max;
-};
+  return arr.reduce((max, n) => n > max ? n : max, arr[0]);
+}
 
 exports.findMin = (arr) => {
-  let min = arr[0];
-
-  for(let i = 1, len = arr.length; i < len; i++ ) {
-    let next = arr[i];
-    min = (next < min) ? next : min;
-  }
-  return min;
-};
-
+  return arr.reduce((min, n) => n < min ? n : min, arr[0]);
+}
 
 let result = {};
 
-exports.reformatData = (data) => {
-  for (let i = 0, len = data.length; i < len; i++) {
-    let nick = {};
-    dataRole = data[i].role;
-    dataName = data[i].name;
-    
-    if (data[i].role in result) {
-      nick["nickname"] = dataName;
-      result[dataRole].push(nick);
-    } else {
-      nick["nickname"] = dataName;
-      result[dataRole] = new Array();
-      result[dataRole].push(nick);
-    }
-  }
-  
-  return result;
+exports.counterTen = (num) => {
+    num.sort();
+    let len = num.length;
+    let lenMid = len % 2 === 0 ? len/2 + 1 : len/2;
+    result = num.filter((number) => number < lenMid)
+                    .map((number) => 10-number)
+                    .filter((number) => {
+                      if(num.includes(number)) return number;
+                    });
+    return result.length;
 };
 
-let num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-exports.counterTen = (num) => {
-  let count = 0;
-  num.sort();
-  for (let i = 0, len = num.length/2; i < len; i++) {
-    let sum = 10 - num[i];
-    if (sum in num) count++;
-  }
-  return count;
+exports.reformatData = (data) => {
+  let result = {};
+  result = data.reduce((map, obj) => {
+    map[obj.role] = [];
+    name = data.filter( d => d.role === obj.role)
+          .map( m => ({nickname: m.name}))
+    map[obj.role] = name;
+    return map;
+  }, {});
+  return result;
 };
