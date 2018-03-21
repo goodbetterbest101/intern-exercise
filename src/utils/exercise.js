@@ -19,6 +19,24 @@ exports.findMin = (arr) => {
 };
 
 
+let result = {};
 
-
+exports.reformatData = (data) => {
+  for (let i = 0, len = data.length; i < len; i++) {
+    let nick = {};
+    dataRole = data[i].role;
+    dataName = data[i].name;
+    
+    if (data[i].role in result) {
+      nick["nickname"] = dataName;
+      result[dataRole].push(nick);
+    } else {
+      nick["nickname"] = dataName;
+      result[dataRole] = new Array();
+      result[dataRole].push(nick);
+    }
+  }
+  
+  return result;
+};
 
