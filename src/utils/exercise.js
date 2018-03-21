@@ -40,3 +40,14 @@ exports.reformatData = (data) => {
   return result;
 };
 
+let num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+exports.counterTen = (num) => {
+  let count = 0;
+  num.sort();
+  for (let i = 0, len = num.length/2; i < len; i++) {
+    let sum = 10 - num[i];
+    if (sum in num) count++;
+  }
+  return count;
+};

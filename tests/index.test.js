@@ -84,12 +84,12 @@ describe('Intern Testing', () => {
         }
         expect(expectData).to.deep.equal(utils.reformatData(data))
     })
-    // 
-    // it('หาจำนวนคู่ที่พวกแล้วได้ 10 ว่ามีจำนวนกี่คู่', () => {
-    //     const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    //     const actual = utils.counterTen(numbers)
-    //     expect(actual).to.equal(4)
-    // })
+    
+    it('หาจำนวนคู่ที่พวกแล้วได้ 10 ว่ามีจำนวนกี่คู่', () => {
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        const actual = utils.counterTen(numbers)
+        expect(actual).to.equal(4)
+    })
 })
 
 console.log(expect)
